@@ -32,7 +32,7 @@ clearGray.addEventListener('touchstart',() =>{
 
 let block= document.querySelector(".block");
 let count=1;
-let listNumber=1;
+// let listNumber=1;
 addElement.addEventListener('click',() =>{
     input.classList.toggle("dis-none");
     if(addInput.value == "" || addInput.value ==" "){
@@ -51,8 +51,8 @@ addElement.addEventListener('click',() =>{
             let blockElementText=document.createElement("p");
             blockNumberAndText.append(blockElementText);
             blockElementText.classList.add("block-element-text");  
-            number.textContent=listNumber+".";
-            listNumber++;
+            // number.textContent=listNumber+".";
+            // listNumber++;
             blockElementText.textContent=addInput.value;
             let imgBlock=document.createElement("div");
             imgBlock.classList.add("img-block");
