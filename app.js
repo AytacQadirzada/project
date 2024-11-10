@@ -25,6 +25,11 @@ let addInput=document.querySelector("input");
 clearPurple.addEventListener('click',() =>{
     addInput.value="";
 })
+
+clearGray.addEventListener('touchstart',() =>{
+    addInput.value="";
+})
+
 let block= document.querySelector(".block");
 let count=1;
 let listNumber=1;
@@ -72,6 +77,13 @@ addElement.addEventListener('click',() =>{
                 imgPurple.classList.toggle('dis-none');
             })
             imgPurple.addEventListener('click',()=>{
+                mainBlock.remove();
+                if(block.innerHTML==""){
+                    block.classList.toggle("dis-none");
+                    block.classList.toggle("new-block")
+                }
+            })
+            imgGray.addEventListener('touchstart',()=>{
                 mainBlock.remove();
                 if(block.innerHTML==""){
                     block.classList.toggle("dis-none");
@@ -128,6 +140,18 @@ zAGray.addEventListener('mouseout',() =>{
 zABlack.addEventListener('click',() =>{
     sortBlocks("Z-A");
 
+    zAGray.classList.toggle('dis-none');
+    aZGray.classList.toggle("dis-none")
+})
+
+
+aZGray.addEventListener('touchstart',() =>{
+    sortBlocks("A-Z");
+    aZGray.classList.toggle('dis-none');
+    zAGray.classList.toggle('dis-none');
+})
+zAGray.addEventListener('touchstart',() =>{
+    sortBlocks("Z-A");
     zAGray.classList.toggle('dis-none');
     aZGray.classList.toggle("dis-none")
 })
