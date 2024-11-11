@@ -31,72 +31,93 @@ clearGray.addEventListener('touchstart',() =>{
 })
 
 let block= document.querySelector(".block");
-let count=1;
-// let listNumber=1;
-addElement.addEventListener('click',() =>{
-    input.classList.toggle("dis-none");
-    if(addInput.value == "" || addInput.value ==" "){
-    }else{
-        if(count %2 !=0){
-            let mainBlock=document.createElement("div");
-            mainBlock.classList.add("main-block");
-            let blockNumberAndText=document.createElement("div");
-            blockNumberAndText.classList.add("block-number-text");
-            block.append(mainBlock);
-            mainBlock.append(blockNumberAndText);
-            block.classList.add("block-element");
-            let number=document.createElement("div");
-            blockNumberAndText.append(number);
-            number.classList.add("number");
-            let blockElementText=document.createElement("p");
-            blockNumberAndText.append(blockElementText);
-            blockElementText.classList.add("block-element-text");  
-            // number.textContent=listNumber+".";
-            // listNumber++;
-            blockElementText.textContent=addInput.value;
-            let imgBlock=document.createElement("div");
-            imgBlock.classList.add("img-block");
-            mainBlock.append(imgBlock);
-            let imgGray=document.createElement("img");
-            imgGray.classList.add("clear-gray");
-            imgGray.src="./sekiller/clear_gray.svg";
-            let imgPurple=document.createElement("img");
-            imgPurple.classList.add("clear-purple");
-            imgPurple.classList.add("dis-none");
-            imgPurple.src="sekiller/clear_purple.svg";
-            imgBlock.append(imgGray);
-            imgBlock.append(imgPurple);
-            block.classList.remove("dis-none")
-            block.classList.add('new-block');
-            imgGray.addEventListener("mouseover",()=>{
-                imgGray.classList.toggle('dis-none');
-                imgPurple.classList.toggle('dis-none');
-            })
-            imgGray.addEventListener("mouseout",()=>{
-                imgGray.classList.toggle('dis-none');
-                imgPurple.classList.toggle('dis-none');
-            })
-            imgPurple.addEventListener('click',()=>{
-                mainBlock.remove();
-                if(block.innerHTML==""){
-                    block.classList.toggle("dis-none");
-                    block.classList.toggle("new-block")
-                }
-            })
-            imgGray.addEventListener('touchstart',()=>{
-                mainBlock.remove();
-                if(block.innerHTML==""){
-                    block.classList.toggle("dis-none");
-                    block.classList.toggle("new-block")
-                }
-            })
 
-            
-        }
+function updateNumbers() {
+    const numbers = document.querySelectorAll(".number");
+    numbers.forEach((number, index) => {
+        number.textContent = (index + 1) + "."; 
+    });
+}
+
+addElement.addEventListener('click', () => {
+    input.classList.toggle("dis-none");
+    if (addInput.value.trim() === "") {
+        return;
     }
-    count++;
-    addInput.value="";
-})
+    else{
+        let mainBlock = document.createElement("div");
+        mainBlock.classList.add("main-block");
+
+        let blockNumberAndText = document.createElement("div");
+        blockNumberAndText.classList.add("block-number-text");
+        
+        block.append(mainBlock);
+        mainBlock.append(blockNumberAndText);
+        block.classList.add("block-element");
+
+        let number = document.createElement("div");
+        blockNumberAndText.append(number);
+        number.classList.add("number");
+
+        let blockElementText = document.createElement("p");
+        blockNumberAndText.append(blockElementText);
+        blockElementText.classList.add("block-element-text");  
+        blockElementText.textContent = addInput.value;
+
+        let imgBlock = document.createElement("div");
+        imgBlock.classList.add("img-block");
+        mainBlock.append(imgBlock);
+
+        let imgGray = document.createElement("img");
+        imgGray.classList.add("clear-gray");
+        imgGray.src = "./sekiller/clear_gray.svg";
+
+        let imgPurple = document.createElement("img");
+        imgPurple.classList.add("clear-purple", "dis-none");
+        imgPurple.src = "./sekiller/clear_purple.svg";
+
+        imgBlock.append(imgGray);
+        imgBlock.append(imgPurple);
+
+        block.classList.remove("dis-none");
+        block.classList.add('new-block');
+
+        imgGray.addEventListener("mouseover", () => {
+            imgGray.classList.toggle('dis-none');
+            imgPurple.classList.toggle('dis-none');
+        });
+
+        imgGray.addEventListener("mouseout", () => {
+            imgGray.classList.toggle('dis-none');
+            imgPurple.classList.toggle('dis-none');
+        });
+
+        imgPurple.addEventListener('click', () => {
+            mainBlock.remove();
+            if (block.innerHTML === "") {
+                block.classList.toggle("dis-none");
+                block.classList.toggle("new-block");
+            }
+            updateNumbers();
+        });
+
+        imgGray.addEventListener('touchstart', () => {
+            mainBlock.remove();
+            if (block.innerHTML === "") {
+                block.classList.toggle("dis-none");
+                block.classList.toggle("new-block");
+            }
+            updateNumbers();
+        });
+        
+        updateNumbers(); 
+    }
+    // count++;
+    addInput.value = "";
+});
+
+
+
 
 
 let emptyAndImg=document.querySelector(".empty-and-img");
