@@ -18,8 +18,19 @@ clearGray.addEventListener("mouseout",()=>{
     clearGray.classList.toggle('dis-none');
     clearPurple.classList.toggle('dis-none');
 })
+let addElement=document.querySelector('.add-main .add');
 
-let addElement=document.querySelector('.add img');
+let addElementHover=document.querySelector(".add-main .add-hover");
+
+addElement.addEventListener("mouseover",() =>{
+    addElement.classList.toggle("dis-none");
+    addElementHover.classList.toggle("dis-none");
+})
+
+addElement.addEventListener("mouseout",() =>{
+    addElement.classList.toggle("dis-none");
+    addElementHover.classList.toggle("dis-none");
+})
 let input=document.querySelector(".input");
 let addInput=document.querySelector("input");
 clearPurple.addEventListener('click',() =>{
@@ -39,7 +50,7 @@ function updateNumbers() {
     });
 }
 
-addElement.addEventListener('click', () => {
+addElementHover.addEventListener('click', () => {
     input.classList.toggle("dis-none");
     if (addInput.value.trim() === "") {
         return;

@@ -55,7 +55,7 @@ input:focus{
     border-radius: 10px;
     border-color: lightgray;
 }
-.add{
+.add-main{
     margin-top: 18px;
     margin-bottom: 19px;
 }
@@ -166,7 +166,7 @@ input:focus{
         border-radius: 10px;
         border-color: lightgray;
     }
-    .add{
+    .add-main{
         margin-top: 18px;
         margin-bottom: 19px;
     }
