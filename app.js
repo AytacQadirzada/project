@@ -69,11 +69,11 @@ addElement.addEventListener('click', () => {
         mainBlock.append(imgBlock);
 
         let imgGray = document.createElement("img");
-        imgGray.classList.add("clear-gray");
+        imgGray.classList.add("clear-gray-element");
         imgGray.src = "./sekiller/clear_gray.svg";
 
         let imgPurple = document.createElement("img");
-        imgPurple.classList.add("clear-purple", "dis-none");
+        imgPurple.classList.add("clear-purple-element", "dis-none");
         imgPurple.src = "./sekiller/clear_purple.svg";
 
         imgBlock.append(imgGray);
@@ -112,7 +112,6 @@ addElement.addEventListener('click', () => {
         
         updateNumbers(); 
     }
-    // count++;
     addInput.value = "";
 });
 
