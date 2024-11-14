@@ -51,8 +51,6 @@ function updateNumbers() {
 }
 
 addElementHover.addEventListener('click', () => {
-
-    // touchstart olmalidi yoxsa click olsa olar?
     
     input.classList.toggle("dis-none");
     if (addInput.value.trim() === "") {
@@ -131,8 +129,6 @@ addElementHover.addEventListener('click', () => {
 
 
 addElement.addEventListener('touchstart', () => {
-
-    // touchstart olmalidi yoxsa click olsa olar?
     
     input.classList.toggle("dis-none");
     if (addInput.value.trim() === "") {

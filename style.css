@@ -101,6 +101,8 @@ input:focus{
     display: flex;
     gap: 12px;
     align-items: center;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .main-block{
     display: flex;
@@ -203,6 +205,8 @@ input:focus{
         display: flex;
         gap: 12px;
         align-items: center;
+        word-wrap: break-word;
+        word-break: break-all;
     }
     .main-block{
         display: flex;
